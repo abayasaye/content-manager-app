@@ -1,4 +1,15 @@
 const ResourceList = ({ resources }) => {
+  const renderResources = () =>
+    resources.map((resource, key = resource.id) => (
+      <div key={key} className="column is-5 is-offset-1 ">
+        <div className="content is-medium">
+          <h2 className="subtitle is-5 has-text-grey">{resource.createdAt}</h2>
+          <h1 className="title has-text-black is-3">{resource.title}</h1>
+          <p className="has-text-dark">{resource.description}</p>
+        </div>
+      </div>
+    ));
+
   return (
     <>
       <section className="hero ">
@@ -6,23 +17,7 @@ const ResourceList = ({ resources }) => {
           <div className="container">
             <section className="section">
               <div className="columns is-multiline is-variable is-8">
-                {resources.map((resource, key = resource.id) => {
-                  return (
-                    <div key={key} className="column is-5 is-offset-1 ">
-                      <div className="content is-medium">
-                        <h2 className="subtitle is-5 has-text-grey">
-                          {resource.createdAt}
-                        </h2>
-                        <h1 className="title has-text-black is-3">
-                          {resource.title}
-                        </h1>
-                        <p className="has-text-dark">
-                       {resource.description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
+                {renderResources()}
               </div>
             </section>
           </div>
