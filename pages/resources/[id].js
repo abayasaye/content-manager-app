@@ -1,6 +1,7 @@
+import Link from "next/link";
 import Layout from "../components/Layout";
 
-const ResourceDetails = ({resource}) => {
+const ResourceDetails = ({ resource }) => {
   return (
     <Layout>
       <section className="hero ">
@@ -23,15 +24,15 @@ const ResourceDetails = ({resource}) => {
     </Layout>
   );
 };
-export async function getServerSideProps({params}){
-const dataRes = await fetch(`http://localhost:3001/api/resources/${params.id}`)
-const data = await dataRes.json()
-console.log(data);
-return {
+
+export async function getServerSideProps({ params }) {
+  const dataRes = await fetch(`http://localhost:3001/api/resources/${params.id}`);
+  const data = await  dataRes.json();
+  return {
     props: {
-        resource:data
-    }
-}
+      resource: data,
+    },
+  };
 }
 
 export default ResourceDetails;
