@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+
 const Navbar = () => {
   return (
     <>
@@ -50,6 +51,7 @@ const Navbar = () => {
       </nav>
     </>
   );
+  
 };
 
 export default Navbar;

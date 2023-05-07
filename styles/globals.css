@@ -110,3 +110,18 @@ a {
 .navbar{
   background-color: #FFFFFF;
 }
+
+.active-resource{
+  background-color: #9edff8;
+  text-align: center;
+  color: #fff;
+}
+
+.active-resource .resource-name{
+  font-size: 30px;
+}
+
+.active-resource .elapsed-time{
+  font-size: 64px;
+  font-weight:bold ;
+}

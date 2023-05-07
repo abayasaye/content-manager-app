@@ -5,7 +5,6 @@ import ResourceHighlight from "./components/ResourceHighlight";
 import ResourceList from "./components/ResourceList";
 
 export default function Home({ resources }) {
-
   return (
     <Layout>
       <ResourceHighlight resources={resources.slice(0, 2)} />
