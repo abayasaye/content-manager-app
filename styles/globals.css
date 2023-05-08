@@ -125,3 +125,6 @@ a {
   font-size: 64px;
   font-weight:bold ;
 }
+.active-resource .time-wrapper {
+  height: 100px;
+}
