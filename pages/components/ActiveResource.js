@@ -51,7 +51,11 @@ const ActiveResource = () => {
         {hasResource ? (
           resource.title
         ) : (
-          <img width={100} className="w-100" src={"load.gif"} />
+          <span className="is-size-5">
+            <img width={100} className="w-100" src={"../.././load.gif"} />
+            <br />
+            No Active Resource
+          </span>
         )}
       </h1>
       <div className="time-wrapper">
@@ -59,7 +63,12 @@ const ActiveResource = () => {
           (seconds > 0 ? (
             <h2 className="elapsed-time">{seconds}</h2>
           ) : (
-            <button onClick={completeResource} className="button is-success ml-1">Click and Done!</button>
+            <button
+              onClick={completeResource}
+              className="button is-success ml-1"
+            >
+              Click and Done!
+            </button>
           ))}
       </div>
       {hasResource ? (

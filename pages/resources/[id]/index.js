@@ -1,5 +1,7 @@
 import Layout from "@/pages/components/Layout";
+import ResourceLabel from "@/pages/components/ResourceLabel";
 import axios from "axios";
+import moment from "moment";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
 
@@ -26,22 +28,30 @@ const ResourceDetails = ({ resource }) => {
               <div className="columns">
                 <div className="column is-8 is-offset-2">
                   <div className="content is-medium">
-                    <h2 className="subtitle is-4">{resource.createdAt}</h2>
+                    <h2 className="subtitle is-4">
+                      {moment(resource.createdAt).format("LLL")}{" "}
+                      <ResourceLabel status={resource.status} />
+                    </h2>
                     <h1 className="title">{resource.title}</h1>
                     <p>{resource.description}</p>
                     <p>Time to finish: {resource.timeToFinish} min</p>
-                    <Link
-                      className="button is-warning"
-                      href={`/resources/${resource.id}/edit`}
-                    >
-                      Update
-                    </Link>
-                    <button
-                      onClick={ActiveResource}
-                      className="button is-success ml-1"
-                    >
-                      Activate
-                    </button>
+                    {
+                      resource.status === "inactive" &&
+                      <>
+                        <Link
+                          className="button is-warning"
+                          href={`/resources/${resource.id}/edit`}
+                        >
+                          Update
+                        </Link>
+                        <button
+                          onClick={ActiveResource}
+                          className="button is-success ml-1"
+                        >
+                          Activate
+                        </button>
+                      </>
+                    }
                   </div>
                 </div>
               </div>
@@ -55,7 +65,7 @@ const ResourceDetails = ({ resource }) => {
 
 export async function getServerSideProps({ params }) {
   const dataRes = await fetch(
-    `http://localhost:3001/api/resources/${params.id}`
+    `${process.env.API_URL}/resources/${params.id}`
   );
   const data = await dataRes.json();
   return {

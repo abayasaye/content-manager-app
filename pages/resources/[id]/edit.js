@@ -7,9 +7,7 @@ const resourceEdit = ({ resource }) => {
     axios
       .patch("/api/resources", formData)
       .then((_) => alert("data updated"))
-      .catch((err) => {
-        err?.response.data;
-      });
+      .catch(err => alert(err?.response?.data));
   };
   return (
     <Layout>
@@ -20,7 +18,7 @@ const resourceEdit = ({ resource }) => {
 
 export async function getServerSideProps({ params }) {
   const dataRes = await fetch(
-    `http://localhost:3001/api/resources/${params.id}`
+    `${process.env.API_URL}/resources/${params.id}`
   );
   const data = await dataRes.json();
   return {

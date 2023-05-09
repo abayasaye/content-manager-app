@@ -128,3 +128,15 @@ a {
 .active-resource .time-wrapper {
   height: 100px;
 }
+
+.tag.resource-active{
+background-color:#2d8bff;
+}
+
+.tag.resource-inactive{
+background-color: tomato;
+}
+
+.tag.resource-complete{
+  background-color: #2dde2d ;
+}
