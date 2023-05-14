@@ -8,9 +8,9 @@ const ResourceHighlight = ({ resources }) => {
       <section className="hero ">
         <div className="hero-body">
           <div className="container">
-            {resources.map((resource, key = resource.id) => {
+            {resources?.map(resource => {
               return (
-                <section key={key} className="section">
+                <section key={resource.id} className="section">
                   <div className="columns">
                     <div className="column is-8 is-offset-2">
                       <div className="content is-medium">

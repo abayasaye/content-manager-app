@@ -3,7 +3,7 @@ import ResourceLabel from "@/pages/components/ResourceLabel";
 import axios from "axios";
 import moment from "moment";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+// import {useRouter} from "next/router";
 
 const ResourceDetails = ({ resource }) => {
   const ActiveResource = () => {
@@ -13,11 +13,11 @@ const ResourceDetails = ({ resource }) => {
       .catch((_) => alert("cannot active the resource"));
   };
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  if (router.isFallback) {
-    return <div className="is-loading">loading data</div>;
-  }
+  // if (router.isFallback) {
+  //   return <div className="is-loading">loading data</div>;
+  // }
 
   return (
     <Layout>
