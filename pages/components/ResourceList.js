@@ -4,8 +4,8 @@ import moment from "moment";
 
 const ResourceList = ({ resources }) => {
   const renderResources = () =>
-    resources.map((resource, key = resource.id) => (
-      <div key={key} className="column is-5 is-offset-1 ">
+    resources?.map(resource => 
+      <div key={resource.id} className="column is-5 is-offset-1 ">
         <div className="content is-medium">
           <h2 className="subtitle is-5 has-text-grey">
             {moment(resource.createdAt).format("LLL")}
@@ -18,7 +18,7 @@ const ResourceList = ({ resources }) => {
           </Link>
         </div>
       </div>
-    ));
+    );
 
   return (
     <>
