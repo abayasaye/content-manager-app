@@ -35,8 +35,7 @@ const ResourceDetails = ({ resource }) => {
                     <h1 className="title">{resource.title}</h1>
                     <p>{resource.description}</p>
                     <p>Time to finish: {resource.timeToFinish} min</p>
-                    {
-                      resource.status === "inactive" &&
+                    {resource.status === "inactive" && (
                       <>
                         <Link
                           className="button is-warning"
@@ -51,7 +50,7 @@ const ResourceDetails = ({ resource }) => {
                           Activate
                         </button>
                       </>
-                    }
+                    )}
                   </div>
                 </div>
               </div>
@@ -64,9 +63,7 @@ const ResourceDetails = ({ resource }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const dataRes = await fetch(
-    `${process.env.API_URL}/resources/${params.id}`
-  );
+  const dataRes = await fetch(`${process.env.API_URL}/resources/${params.id}`);
   const data = await dataRes.json();
   return {
     props: {
