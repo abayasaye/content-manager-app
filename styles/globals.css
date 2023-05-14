@@ -77,13 +77,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  text-align: center;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: aliceblue;
 }
 
 body {
@@ -105,4 +105,38 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.navbar{
+  background-color: #FFFFFF;
+}
+
+.active-resource{
+  background-color: #9edff8;
+  text-align: center;
+  color: #fff;
+}
+
+.active-resource .resource-name{
+  font-size: 30px;
+}
+
+.active-resource .elapsed-time{
+  font-size: 64px;
+  font-weight:bold ;
+}
+.active-resource .time-wrapper {
+  height: 100px;
+}
+
+.tag.resource-active{
+background-color:#2d8bff;
+}
+
+.tag.resource-inactive{
+background-color: tomato;
+}
+
+.tag.resource-complete{
+  background-color: #2dde2d ;
 }
